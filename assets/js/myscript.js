@@ -8,3 +8,7 @@ function getStars(nbStars = 0){
     str += '</a>'
       document.write(str);
 }
+function getAge(naissance = '2001/04/26'){
+  var years = new Date(new Date() - new Date(naissance)).getFullYear()- 1970;
+  document.write(years);
+}
