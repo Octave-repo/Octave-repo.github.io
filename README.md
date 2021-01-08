@@ -1,5 +1,7 @@
 # CV Web
 
+Octave (Rungassamy-)Valadier
+
 Readme très rapide pour le templates utilisé ansi que les modifications apportés.
 
 Il est possible de visualiser la page web [ici.](https://octave-repo.github.io/)
