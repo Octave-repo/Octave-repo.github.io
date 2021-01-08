@@ -6,7 +6,7 @@ Il est possible de visualiser la page web [ici.](https://octave-repo.github.io/)
 
 Pour le template, j'ai utilisé [Orbit.](https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/)
 
-## Modification Apportés
+## Modifications Apportées
 
 - Suppression de l'image de profil
 - Changement de la couleur de la barre de droite par une couleur me plaisant un peu plus que celles proposés.
