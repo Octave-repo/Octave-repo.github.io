@@ -41,7 +41,7 @@ p {
 }
 
 .wrapper {
-  background: rgb(226, 194, 12);
+  background: rgb(172, 40, 7);
   max-width: 960px;
   margin: 0 auto;
   margin-top: 30px;
@@ -52,7 +52,7 @@ p {
 }
 
 .sidebar-wrapper {
-  background: rgb(226, 194, 12);
+  background: rgb(172, 40, 7);
   position: absolute;
   right: 0;
   width: 250px;
