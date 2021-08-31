@@ -5,7 +5,7 @@ function getStars(nbStars = 0){
       str += '<i class="fas fa-star"></i>\n';
     if (isDecimal)
       str += '<i class="fas fa-star-half"></i>\n';
-    str += '</a>'
+    str += '</a>';
       document.write(str);
 }
 function getAge(naissance = '2001/04/26'){
