@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proposition R-62 | Cain Paxwell</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  
+<style>
+  body {
+    margin: 0;
+    padding: 30px;
+    background: #f2f0e9;
+    font-family: Arial, sans-serif;
+    color: #172b42;
+  }
+
+  /* Titres principaux */
+  h1, h2 {
+    color: #172b42;
+  }
+
+  /* ARTICLES R-62 */
+  .articles {
+    max-width: 900px;
+    margin: 40px auto;
+  }
+
+  .article-card {
+    background: #ffffff;
+    border: 1px solid #d9dce0;
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .article-number {
+    color: #b99a61;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  .article-reference {
+    color: #888888;
+    font-size: 12px;
+  }
+
+  .article-card h2 {
+    font-size: 21px;
+    margin: 0 0 16px;
+    line-height: 1.35;
+  }
+
+  .article-card > p {
+    color: #333333;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Encadré SIMPLEMENT */
+  .simple-explanation {
+    background: #f2f0e9;
+    border-left: 4px solid #b99a61;
+    padding: 14px 18px;
+    margin-top: 22px;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .simple-label {
+    display: block;
+    color: #8d7448;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+
+  .simple-explanation p {
+    color: #172b42;
+    margin: 7px 0 0;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+
+  /* GRAPHIQUE */
+  .graph-container {
+    max-width: 850px;
+    margin: 40px auto;
+  }
+
+  .graph-container h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: #666666;
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .note {
+    color: #666666;
+    font-size: 10px;
+    margin-bottom: 25px;
+  }
+
+  .graph-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+  }
+
+  .graph-inner {
+    min-width: 1000px;
+    height: 400px;
+  }
+
+  /* ADAPTATION MOBILE */
+  @media (max-width: 600px) {
+    body {
+      padding: 15px;
+    }
+
+    .articles {
+      margin: 25px auto;
+    }
+
+    .article-card {
+      padding: 18px;
+    }
+
+    .article-card h2 {
+      font-size: 18px;
+    }
+
+    .article-card > p,
+    .simple-explanation p {
+      font-size: 14px;
+    }
+
+    .graph-container {
+      margin: 30px auto;
+    }
+  }
+  h1 {
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    color: #172b42;
+
+}
+.campaign-header {
+    background-color: #a32626;
+    color: #f2f0e9;
+    text-align: center;
+    padding: 25px 20px;
+    margin: 0 auto 35px;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+.campaign-header h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #f2f0e9;
+}
+
+.campaign-header h2 {
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0;
+    color: #f2f0e9;
+}
+body > h2 {
+    font-size: 22px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 35px;
+    color: #b99a61;
+}
+.faq {
+    max-width: 900px;
+    margin: 50px auto;
+    color: #172b42;
+}
+
+.faq > h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.faq-intro {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.faq details {
+    background-color: #ffffff;
+    border: 1px solid #d5d1c8;
+    margin-bottom: 10px;
+    padding: 16px 20px;
+}
+
+.faq summary {
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 25px;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: -2px;
+    font-size: 22px;
+    color: #a32626;
+}
+
+.faq details[open] summary::after {
+    content: "−";
+}
+
+.faq details p {
+    margin: 15px 0 0;
+    line-height: 1.6;
+    color: #444;
+}
+.site-footer {
+    background-color: #172b42;
+    color: #f2f0e9;
+    padding: 35px 30px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-brand strong {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-brand span {
+    font-size: 13px;
+    color: #c5cbd2;
+}
+
+.footer-info {
+    font-size: 12px;
+    color: #c5cbd2;
+    line-height: 1.6;
+}
+
+.footer-info p {
+    margin: 3px 0;
+}
+
+.footer-legal a {
+    color: #d2b77e;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+
+</head>
+
+<body>
+<body id="top">
+<header class="campaign-header">
+    <h1>Proposition R-62</h1>
+    <h2>Ensemble pour un futur plus sûr</h2>
+</header>
+<section class="articles">
+
+  <!-- ARTICLE 1 -->
+  <div class="article-card">
+
+    <div class="article-header">
+      <span class="article-number">ARTICLE 01</span>
+      <span class="article-reference">R-62 / 2036</span>
+    </div>
+
+    <h2>Modernisation des dispositifs de surveillance territoriale</h2>
+
+    <p>
+      Il est procédé au déploiement progressif d'un réseau intégré
+      de captation, de traitement et d'analyse des flux urbains,
+      destiné à renforcer les capacités d'observation territoriale,
+      à optimiser les dispositifs de prévention des risques et à
+      faciliter la coordination opérationnelle des services compétents.
+    </p>
+
+    <div class="simple-explanation">
+      <span class="simple-label">SIMPLEMENT</span>
+      <p>
+        Renforcer la sécurité de nos rues grâce à des outils
+        de surveillance modernes et performants.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ARTICLE 2 -->
+  <div class="article-card">
+
+    <div class="article-header">
+      <span class="article-number">ARTICLE 02</span>
+      <span class="article-reference">R-62 / 2036</span>
+    </div>
+
+    <h2>Régulation temporelle des déplacements réplicants</h2>
+
+    <p>
+      Les déplacements des entités réplicantes pourront faire
+      l'objet de restrictions horaires dans les secteurs
+      géographiques identifiés par les autorités compétentes
+      comme présentant des facteurs de vulnérabilité sécuritaire
+      particuliers. Les modalités de dérogation seront définies
+      par voie réglementaire.
+    </p>
+
+    <div class="simple-explanation">
+      <span class="simple-label">SIMPLEMENT</span>
+      <p>
+        Garantir la tranquillité de nos quartiers grâce à une
+        meilleure régulation des déplacements nocturnes.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ARTICLE 3 -->
+  <div class="article-card">
+
+    <div class="article-header">
+      <span class="article-number">ARTICLE 03</span>
+      <span class="article-reference">R-62 / 2036</span>
+    </div>
+
+    <h2>Registre centralisé d'identification et de conformité réplicante</h2>
+
+    <p>
+      Il est institué un registre centralisé recensant l'ensemble
+      des entités réplicantes présentes sur le territoire. Cette
+      obligation de déclaration s'applique également aux situations
+      antérieures à l'entrée en vigueur de la présente loi. Les
+      individus faisant l'objet d'indices concordants relatifs à
+      une éventuelle nature réplicante pourront être inscrits à
+      titre provisoire, dans l'attente d'une procédure de vérification.
+    </p>
+
+    <div class="simple-explanation">
+      <span class="simple-label">SIMPLEMENT</span>
+      <p>
+        Mieux connaître les populations présentes sur notre
+        territoire pour garantir une protection équitable à tous.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- ARTICLE 4 -->
+  <div class="article-card">
+
+    <div class="article-header">
+      <span class="article-number">ARTICLE 04</span>
+      <span class="article-reference">R-62 / 2036</span>
+    </div>
+
+    <h2>Contrôle périodique de conformité comportementale</h2>
+
+    <p>
+      Les entités réplicantes inscrites au registre prévu à
+      l'article 3 sont soumises à des procédures périodiques
+      d'évaluation comportementale et de vérification de conformité.
+      Ces évaluations ont pour objet d'identifier toute évolution
+      comportementale susceptible de constituer un facteur de
+      risque pour la sécurité publique.
+      <br><br>
+      Les critères d'évaluation, les seuils de conformité ainsi
+      que les protocoles de vérification sont définis et actualisés
+      par l'autorité administrative compétente, en fonction de
+      l'évolution des impératifs de sécurité publique et des
+      recommandations des organismes agréés.
+    </p>
+
+    <div class="simple-explanation">
+      <span class="simple-label">SIMPLEMENT</span>
+      <p>
+        Accompagner les réplicants vers une intégration harmonieuse
+        et durable au sein de notre société.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+  <div class="graph-container">
+	
+    <h2>Évolution des crimes violents impliquant des réplicants</h2>
+    <div class="subtitle">
+      Données consolidées - 2023 à 2036
+    </div>
+
+    <div class="graph-scroll">
+      <div class="graph-inner">
+        <canvas id="crimeChart"></canvas>
+      </div>
+    </div>
+	<p class="note">
+    Source : Bureau des statistiques criminelles du LAPD.
+    Les données antérieures à 2023 ne sont pas représentées afin de garantir
+    une meilleure lisibilité des tendances récentes.
+</p>
+  </div>
+<section class="faq">
+    <h2>Questions fréquentes</h2>
+    <p class="faq-intro">
+        Retrouvez les réponses aux questions les plus fréquentes concernant la proposition R-62.
+    </p>
+	<details>
+		<summary>Pourquoi ne pas simplement bannir les réplicants de notre société ?</summary>
+		<p>
+			Une telle mesure serait contraire aux principes de responsabilité et de stabilité
+			qui fondent notre société. Les réplicants participent à de nombreux secteurs
+			essentiels de notre économie et de nos infrastructures. La proposition R-62
+			privilégie une approche équilibrée : garantir la sécurité de la population tout
+			en maintenant un cadre de coexistence encadré et responsable.
+		</p>
+	</details>
+    <details>
+        <summary>Pourquoi avons-nous besoin de la proposition R-62 ?</summary>
+        <p>
+            La sécurité de tous nécessite des outils adaptés aux nouveaux enjeux de notre société.
+            La proposition R-62 vise à renforcer les dispositifs de prévention et à améliorer
+            la coordination des autorités compétentes.
+        </p>
+    </details>
+
+    <details>
+        <summary>La proposition R-62 remet-elle en cause les droits des réplicants ?</summary>
+        <p>
+            La proposition ne vise pas à remettre en cause les droits fondamentaux des personnes,
+            mais à garantir un cadre commun de sécurité et de responsabilité.
+            Les dispositions prévues s'inscrivent dans une démarche de protection collective.
+        </p>
+    </details>
+
+    <details>
+        <summary>Pourquoi instaurer un registre des réplicants ?</summary>
+        <p>
+            Une meilleure connaissance des populations présentes sur notre territoire permet
+            aux services compétents d'adapter leurs interventions et de garantir une réponse
+            plus efficace aux situations présentant un risque potentiel.
+        </p>
+    </details>
+
+    <details>
+        <summary>Les réplicants pourront-ils toujours circuler librement ?</summary>
+        <p>
+            Des dispositions spécifiques pourront être appliquées dans certains secteurs
+            géographiques, en fonction des impératifs locaux de sécurité publique.
+            Des modalités de dérogation sont prévues par les textes réglementaires.
+        </p>
+    </details>
+
+    <details>
+        <summary>Qui contrôle l'application de la proposition R-62 ?</summary>
+        <p>
+            La mise en œuvre sera assurée par les autorités administratives compétentes,
+            dans le cadre des procédures de contrôle et d'évaluation prévues par la loi.
+        </p>
+    </details>
+</section>
+  <script>
+    const ctx = document.getElementById('crimeChart');
+
+    new Chart(ctx, {
+      type: 'line',
+
+      data: {
+        labels: [
+  "S1 2023", "S2 2023",
+  "S1 2024", "S2 2024",
+  "S1 2025", "S2 2025",
+  "S1 2026", "S2 2026",
+  "S1 2027", "S2 2027",
+  "S1 2028", "S2 2028",
+  "S1 2029", "S2 2029",
+  "S1 2030", "S2 2030",
+  "S1 2031", "S2 2031",
+  "S1 2032", "S2 2032",
+  "S1 2033", "S2 2033",
+  "S1 2034", "S2 2034",
+  "S1 2035", "S2 2035",
+  "S1 2036", "S2 2036"
+],
+
+        datasets: [{
+          data: [
+  7, 10, 9, 13, 8, 12, 15, 11,
+  14, 18, 13, 19, 16, 14, 22, 18,
+  20, 16, 25, 21, 24, 19, 30, 26,
+  23, 34, 29, 44
+],
+
+          borderColor: '#b99a61',
+          backgroundColor: 'rgba(185,154,97,0.12)',
+          fill: true,
+          tension: 0,
+
+          pointRadius: 3,
+          pointBackgroundColor: '#b99a61'
+        }]
+      },
+
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+
+        plugins: {
+          legend: {
+            display: false
+          },
+
+          tooltip: {
+            enabled: false
+          }
+        },
+
+        scales: {
+          y: {
+            min: 6,
+            max: 45,
+
+            ticks: {
+              display: false
+            },
+
+            grid: {
+              display: false
+            },
+
+            border: {
+              display: false
+            }
+          },
+
+          x: {
+            grid: {
+              display: false
+            },
+
+            border: {
+              display: false
+            }
+          }
+        }
+      }
+    });
+	const graphScroll = document.querySelector('.graph-scroll');
+	graphScroll.scrollLeft = graphScroll.scrollWidth;
+  </script>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <strong>CAIN PAXWELL</strong>
+            <span>Pour un avenir plus sûr.</span>
+        </div>
+
+        <div class="footer-info">
+            <p>Proposition R-62 — Campagne officielle</p>
+            <p>Site financé par le comité de campagne de Cain Paxwell.</p>
+            <p>© 2036 Cain Paxwell — Tous droits réservés.</p>
+			<p><br>Honteusement crée avec l'aide de ChatGPT</p>
+        </div>
+
+        <div class="footer-legal">
+            <a href="#top">Retour en haut ↑</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
